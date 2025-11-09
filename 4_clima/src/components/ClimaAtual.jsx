@@ -1,11 +1,12 @@
 import React from 'react'
+import { ClimaInfo } from './ClimaAtualStyles'
 
 const ClimaAtual = ({ clima }) => {
   if (!clima) {
     return null
   }
   return (
-    <div>
+    <ClimaInfo>
       <h3>{clima.name}</h3>
       <img
         src={`http://openweathermap.org/img/wn/${clima.weather[0].icon}.png`}
@@ -13,7 +14,7 @@ const ClimaAtual = ({ clima }) => {
       />
       <p>{clima.main.temp}</p>
       <p>{clima.weather[0].description}</p>
-    </div>
+    </ClimaInfo>
   )
 }
 

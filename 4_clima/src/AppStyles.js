@@ -6,10 +6,11 @@ export const Titulo = styled.h2`
 `
 
 export const ClimaContainer = styled.div`
-  background-color: linear-gradient(to bottom, #89cff0, #005c99);
+  background: linear-gradient(to bottom, #89cff0, #005c99);
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 `

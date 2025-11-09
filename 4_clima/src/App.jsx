@@ -1,6 +1,7 @@
 import Busca from './components/Busca'
 import ClimaAtual from './components/ClimaAtual'
 import Previsao from './components/Previsao'
+import './index.css'
 
 import { useState, useEffect } from 'react'
 import axios from 'axios'
