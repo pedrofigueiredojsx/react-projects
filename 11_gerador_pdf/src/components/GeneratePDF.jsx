@@ -6,21 +6,32 @@ import { useState } from 'react'
 
 import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
+import styled from 'styled-components'
 
 pdfMake.vfs = pdfFonts.vfs
 
 const GeneratePDF = () => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [fontSize, setFontSize] = useState('12')
+  const [fontColor, setFontColor] = useState('#000')
+  const [isBold, setIsBold] = useState(false)
 
   const generatePdf = () => {
-    // Configurações de estilos
+    const customStyle = {
+      fontSize: parseInt(fontSize),
+      color: fontColor,
+      bold: isBold,
+    }
 
     const documentDefinition = {
       content: [
-        { text: `Título: ${title}` },
-        { text: `Descrição: ${description}` },
+        { text: `Título: ${title}`, style: 'customStyle' },
+        { text: `Descrição: ${description}`, style: 'customStyle' },
       ],
+      styles: {
+        customStyle: customStyle,
+      },
     }
 
     pdfMake.createPdf(documentDefinition).download()
@@ -46,7 +57,14 @@ const GeneratePDF = () => {
           onChange={(e) => setDescription(e.target.value)}
         />
       </label>
-      <TextStyleConfig />
+      <TextStyleConfig
+        fontSize={fontSize}
+        setFontSize={setFontSize}
+        fontColor={fontColor}
+        setFontColor={setFontColor}
+        isBold={isBold}
+        setIsBold={setIsBold}
+      />
       <ImageUpload />
       <button className='button' onClick={generatePdf}>
         Gerar PDF
