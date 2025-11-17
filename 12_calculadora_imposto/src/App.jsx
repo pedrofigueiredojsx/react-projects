@@ -7,6 +7,27 @@ import { Container, Typography } from '@mui/material'
 function App() {
   const [taxData, setTaxData] = useState(null)
 
+  const calculateTax = (values) => {
+    let tax = 0
+
+    const income = parseFloat(values.income)
+
+    if (income <= 10000) {
+      tax = income * 0.05
+    } else if (income <= 20000) {
+      tax = income * 0.1
+    } else {
+      tax = income * 0.15
+    }
+
+    const taxData = {
+      ...values,
+      tax,
+    }
+
+    setTaxData(taxData)
+  }
+
   return (
     <>
       <Container style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -17,8 +38,8 @@ function App() {
         >
           Calculadora de Impostos
         </Typography>
-        <TaxForm />
-        {taxData && <TaxReport />}
+        <TaxForm onSubmit={calculateTax} />
+        {taxData && <TaxReport taxData={taxData} />}
       </Container>
     </>
   )

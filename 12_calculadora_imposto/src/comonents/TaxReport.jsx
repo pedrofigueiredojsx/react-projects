@@ -1,12 +1,18 @@
 import { Container, Typography } from '@mui/material'
 
-const TaxReport = () => {
+const TaxReport = ({ taxData }) => {
   return (
     <Container>
       <Typography variant='h5'>Relatório de impostos</Typography>
-      <Typography variant='body1'>Nome: </Typography>
-      <Typography variant='body1'>Idade: anos</Typography>
-      <Typography variant='body1'>Renda: </Typography>
+      <Typography variant='body1'>Nome: {taxData.name}</Typography>
+      <Typography variant='body1'>Idade: {taxData.age} anos</Typography>
+      <Typography variant='body1'>
+        Renda:{' '}
+        {parseFloat(taxData.income).toLocaleString('pt-BR', {
+          style: 'currency',
+          currency: 'BRL',
+        })}
+      </Typography>
       <Typography variant='body1'>Imposto a pagar: </Typography>
     </Container>
   )
