@@ -11,6 +11,22 @@ const ImcCalc = () => {
     setHeight('')
   }
 
+  const validDigits = (text) => {
+    return text.replace(/[^0-9,]/g, '')
+  }
+
+  const handleHeightChange = (e) => {
+    const updatedValue = validDigits(e.target.value)
+
+    setHeight(updatedValue)
+  }
+
+  const handleWeightChange = (e) => {
+    const updatedValue = validDigits(e.target.value)
+
+    setWeight(updatedValue)
+  }
+
   return (
     <div id="calc-container">
       <h2>Calculadora de IMC</h2>
@@ -23,7 +39,7 @@ const ImcCalc = () => {
               name="height"
               id="height"
               placeholder="Exemplo 1,75"
-              onChange={(e) => setHeight(e.target.value)}
+              onChange={(e) => handleHeightChange(e)}
               value={height}
             />
           </div>
@@ -34,7 +50,7 @@ const ImcCalc = () => {
               name="weight"
               id="weight"
               placeholder="Exemplo 70,5"
-              onChange={(e) => setWeight(e.target.value)}
+              onChange={(e) => handleWeightChange(e)}
               value={weight}
             />
           </div>
