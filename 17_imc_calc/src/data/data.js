@@ -29,7 +29,7 @@ export const data = [
     classification: 'Entre 30,0 e 34,9',
     info: 'Obesidade I',
     obesity: 2,
-    infoClass: 'bad',
+    infoClass: 'high',
   },
   {
     min: 35,
@@ -37,7 +37,7 @@ export const data = [
     classification: 'Entre 35,0 e 39,9',
     info: 'Obesidade II',
     obesity: 3,
-    infoClass: 'bad',
+    infoClass: 'high',
   },
   {
     min: 40,
@@ -45,6 +45,6 @@ export const data = [
     classification: 'Maior ou igual a 40,0',
     info: 'Obesidade III',
     obesity: 4,
-    infoClass: 'verybad',
+    infoClass: 'high',
   },
 ]
