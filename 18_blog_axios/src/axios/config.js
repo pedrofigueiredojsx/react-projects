@@ -4,7 +4,6 @@ const blogFetch = axios.create({
   baseURL: "https://jsonplaceholder.typicode.com",
   headers: {
     "Content-Type": "aplication/json",
-    algumacoisa: "teste",
   }
 })
 
