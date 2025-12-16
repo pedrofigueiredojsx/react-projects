@@ -4,9 +4,11 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 const EditPost = () => {
   const navigate = useNavigate()
-  
+
   const [title, setTitle] = useState()
   const [body, setBody] = useState()
+
+  const { id } = useParams()
 
   return (
     <div className="new-post">
