@@ -1,5 +1,11 @@
 import React from 'react'
 
-export const Thanks = () => {
-  return <div>Thanks</div>
+const Thanks = () => {
+  return (
+    <div>
+      <h2>Thanks</h2>
+    </div>
+  )
 }
+
+export default Thanks
